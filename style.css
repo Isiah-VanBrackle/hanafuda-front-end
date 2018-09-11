@@ -1,0 +1,13 @@
+#menu-container {
+  width: 500px;
+  background-color: blue;
+  height: 1200px;
+  margin: 0 auto 0 auto;
+}
+
+button {
+  width: 500px;
+  height: 50px;
+  font-size: 2em;
+  margin-bottom: 5px;
+}
