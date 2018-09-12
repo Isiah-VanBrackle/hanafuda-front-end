@@ -1,6 +1,6 @@
 class Menu {
   static template() {
-    let menu = document.createElement('div')
+    const menu = document.createElement('div')
     menu.id = "menu-container"
     menu.addEventListener('click', this.menuHandler)
     document.body.append(menu)
@@ -17,6 +17,20 @@ class Menu {
   //   ;["1", "2", "3", "back to main menu"].forEach(str => menu.append(this.makeButton(str)))
   // }
 
+  static nameInput() {
+    const menu = document.querySelector("#menu-container")
+
+    const h1 = document.createElement("h1")
+    h1.innerText = "Please enter your name"
+
+    const input = document.createElement("input")
+    input.id = "name-input"
+
+    const start = this.makeButton("start")
+
+    menu.append(h1, input, start)
+  }
+
   static makeButton(name) {
     let btn = document.createElement('button')
     btn.innerText = name
@@ -26,12 +40,17 @@ class Menu {
   static menuHandler(e) {
     switch (e.target.innerText) {
       case "play":
-        Game.template()
-        // Menu.playerSelectMenu()
+        [...e.target.parentNode.children].forEach(ele => ele.remove())
+        Menu.nameInput()
         break
       case "back to main menu":
         [...e.target.parentNode.children].forEach(ele => ele.remove())
         Menu.mainMenu()
+        break
+      case "start":
+        const val = document.querySelector("#name-input").value
+        Game.template(val)
+        Game.start()
         break
       default:
 

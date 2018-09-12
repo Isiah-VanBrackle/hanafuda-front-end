@@ -1,5 +1,5 @@
 class Game {
-    static template() {
+    static template(name) {
         document.querySelector("#menu-container").remove()
         const gameContainer = document.createElement("div")
         gameContainer.id = "game-container"
@@ -65,5 +65,13 @@ class Game {
             </div>
         `
         document.body.appendChild(gameContainer)
+    }
+
+    static start() {
+        return fetch(API + "games", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({current: true})
+        }).then(res => res.json())
     }
 }

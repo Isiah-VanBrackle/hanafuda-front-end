@@ -85,3 +85,13 @@ button {
   margin: 0.7%;
   margin-top: 7%;
 }
+
+h1 {
+  text-align: center;
+}
+
+/* We have to figure out how to center-align the input */
+#name-input {
+  position: relative;
+  margin: auto;
+}
