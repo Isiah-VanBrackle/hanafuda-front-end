@@ -7,23 +7,15 @@ class Menu {
   }
 
   static mainMenu() {
-    this.template()
     const menu = document.querySelector("#menu-container")
-    menu.append(this.makeButton("play"))
-    menu.append(this.makeButton("sign-in"))
-    menu.append(this.makeButton("sign-up"))
-    menu.append(this.makeButton("instructions"))
+    ;["play", "sign-in", "sign-up", "instructions"].forEach(str => menu.append(this.makeButton(str)))
   }
 
-  static playerSelectMenu() {
-    this.template()
-    const menu = document.querySelector("#menu-container")
-    menu.append(this.makeButton("1"))
-    menu.append(this.makeButton("2"))
-    menu.append(this.makeButton("3"))
-    menu.append(this.makeButton("back"))
-
-  }
+  // static playerSelectMenu() {
+  //   this.template()
+  //   const menu = document.querySelector("#menu-container")
+  //   ;["1", "2", "3", "back to main menu"].forEach(str => menu.append(this.makeButton(str)))
+  // }
 
   static makeButton(name) {
     let btn = document.createElement('button')
@@ -34,9 +26,13 @@ class Menu {
   static menuHandler(e) {
     switch (e.target.innerText) {
       case "play":
+        Game.template()
+        // Menu.playerSelectMenu()
+        break
+      case "back to main menu":
         [...e.target.parentNode.children].forEach(ele => ele.remove())
-        Menu.playerSelectMenu()
-        break;
+        Menu.mainMenu()
+        break
       default:
 
     }
