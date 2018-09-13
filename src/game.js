@@ -1,5 +1,5 @@
 class Game {
-    static template(name) {
+    static template() {
         document.querySelector("#menu-container").remove()
         const gameContainer = document.createElement("div")
         gameContainer.id = "game-container"
@@ -7,6 +7,10 @@ class Game {
             <div id="board">
                 <div id="deck"></div>
                 <div id="board-cards-wrapper">
+                    <div class="board-card"></div>
+                    <div class="board-card"></div>
+                    <div class="board-card"></div>
+                    <div class="board-card"></div>
                     <div class="board-card"></div>
                     <div class="board-card"></div>
                     <div class="board-card"></div>

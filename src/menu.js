@@ -48,9 +48,16 @@ class Menu {
         Menu.mainMenu()
         break
       case "start":
+        let gameId
         const val = document.querySelector("#name-input").value
-        Game.template(val)
+        Game.template()
         Game.start()
+          .then(game => {
+            gameId = game.id
+            return Player.create(val)
+          })
+          .then(player => GamePlayer.create(gameId, player.id))
+          .then(Card.deal())
         break
       default:
 
