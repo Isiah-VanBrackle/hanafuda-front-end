@@ -42,13 +42,20 @@ document.addEventListener("DOMContentLoaded", () => {
           const collection = document.querySelector("#collection").children
           for ( const [i, div] of [...collection].entries()) {
             if (!div.children[0]) {
+              // get rid of the gap between the cards and add an empty spot to the end of the table
+              const temp = selection[1].parentNode.parentNode
+              selection[0].parentNode.remove()
+              selection[1].parentNode.remove()
+              temp.innerHTML += `<div class="board-card"></div>`
+              
+              // Adding the matched cards to the collection
               div.appendChild(selection[0])
               collection[i + 1].appendChild(selection[1])
               break
             }
           }
 
-        } else if (true){
+        } else if (true) {
           
         }
 
