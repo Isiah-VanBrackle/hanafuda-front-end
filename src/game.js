@@ -22,7 +22,7 @@ class Game {
                 </div>
             </div>
                 
-            <div id="collection">
+            <div data-starting-index="0" id="collection">
                 <div class="collection-card"></div>
                 <div class="collection-card"></div>
                 <div class="collection-card"></div>

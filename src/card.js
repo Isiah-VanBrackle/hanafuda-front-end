@@ -30,6 +30,7 @@ class Card {
     
     static deal() {
         document.querySelector("#deck").innerHTML = "<img src='images/back1.png'>"
+        // document.querySelector("#deck").firstChild.addEventListener("click", func2) // Add the event listener for the deck
         return fetch(API + "cards/deal")
         .then(res => res.json())
         .then(obj => {
@@ -47,6 +48,8 @@ class Card {
                 const card = new Card(cardJson)
                 card.render("table", i)
             })
+
+            deckArr = obj["deck"]
         })
     }
 
