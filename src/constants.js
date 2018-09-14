@@ -14,12 +14,6 @@ const boardCardsListener = e => {
 	collectOrDeselectCard(true)
 }
 
-const toggleDeckListener = e => {
-	// Enable the hand and board listeners
-	// console.log(selection)
-	shouldWaitForDeck = !shouldWaitForDeck
-} 
-
 function selectCard(img, isHandCard=false) {
 	selection[isHandCard ? 0 : 1] = img
 	;[...img.parentNode.parentNode.children].forEach(ele => {
@@ -29,23 +23,16 @@ function selectCard(img, isHandCard=false) {
 }
 
 function collectOrDeselectCard(isHandCard=false) {
-	
 	// Check if selection doesn't have any nulls 
 	if (selection.every(x => x)) {
 		const board = document.querySelector("#board-cards-wrapper")
-
-		// Unhighlight the cards
 		selection.forEach(img => img.classList.remove("selected"))
-
-		// Check if the suits are matching
 		if (selection[0].dataset.suit === selection[1].dataset.suit) {
 
 			// Remove the matching cards from the board
 			const temp = selection[1].parentNode.parentNode
 			// 'Remove' the drawn card from deck
-			if (shouldWaitForDeck) {
-				document.querySelector('#deck img').setAttribute('src', 'images/back1.png')
-			}
+			document.querySelector('#deck img').setAttribute('src', 'images/back1.png')
 			// selection.forEach(img => img.parentNode.remove())
 			if (!isHandCard) temp.innerHTML += `<div class="board-card"></div>`
 
@@ -57,7 +44,7 @@ function collectOrDeselectCard(isHandCard=false) {
 			collection.dataset.startingIndex = startingIndex + 2
 
 			// Disable the eventListener for board and hand cards
-			if (!handIsLocked) {
+			if (handIsLocked && !shouldWaitForDeck || !handIsLocked && !shouldWaitForDeck) {
 				handIsLocked = true
 				shouldWaitForDeck = true
 			} else {
@@ -81,10 +68,17 @@ function collectOrDeselectCard(isHandCard=false) {
 				alert("That doesn't match any of the cards on the table!");
 				for (const div of board.children) {
 					if (!div.firstChild) {
-						selection[0].parentNode.remove()
+						document.querySelector('#deck img').src = 'images/back1.png'
 						div.appendChild(selection[0])
 						break
 					}
+				}
+				if (!shouldWaitForDeck && handIsLocked) {
+					shouldWaitForDeck = false
+					handIsLocked = false
+				} else {
+					handIsLocked = true
+					shouldWaitForDeck = true
 				}
 				selection = [null, null]
 			}
