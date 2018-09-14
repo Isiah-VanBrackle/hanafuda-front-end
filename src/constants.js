@@ -44,9 +44,16 @@ function collectOrDeselectCard(isHandCard=false) {
 			collection.dataset.startingIndex = startingIndex + 2
 
 			// Disable the eventListener for board and hand cards
-			if (handIsLocked && !shouldWaitForDeck || !handIsLocked && !shouldWaitForDeck) {
+			// basic deck to board match
+			if (!shouldWaitForDeck && !handIsLocked) {
 				handIsLocked = true
 				shouldWaitForDeck = true
+			}
+			else if (handIsLocked && !shouldWaitForDeck) {
+				handIsLocked = false
+				shouldWaitForDeck = false
+			// basic hand to board match
+
 			} else {
 				handIsLocked = false
 				shouldWaitForDeck = false
@@ -55,15 +62,17 @@ function collectOrDeselectCard(isHandCard=false) {
 			// Reset the selection array
 			selection = [null, null]
 
+		// when the two cards selected don't match
 		} else  {
 			const con = [...board.children].some(div => {
 				return div.firstChild ? div.firstChild.dataset.suit === selection[0].dataset.suit : false
 			})
+			// purposeful mismatch
 			if (con) {
 				alert("You could match that card with another card on the table!")
 				selectCard(selection[0], true)
-				handIsLocked = true
 				selection[1] = null
+			// absolutely no matxh
 			} else {
 				alert("That doesn't match any of the cards on the table!");
 				for (const div of board.children) {
