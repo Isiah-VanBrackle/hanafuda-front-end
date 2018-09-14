@@ -40,9 +40,13 @@ function collectOrDeselectCard(isHandCard=false) {
 		// Check if the suits are matching
 		if (selection[0].dataset.suit === selection[1].dataset.suit) {
 
-			// Remove the matching cards
+			// Remove the matching cards from the board
 			const temp = selection[1].parentNode.parentNode
-			selection.forEach(img => img.parentNode.remove())
+			// 'Remove' the drawn card from deck
+			if (shouldWaitForDeck) {
+				document.querySelector('#deck img').setAttribute('src', 'images/back1.png')
+			}
+			// selection.forEach(img => img.parentNode.remove())
 			if (!isHandCard) temp.innerHTML += `<div class="board-card"></div>`
 
 			// Put them in the collection
@@ -53,8 +57,13 @@ function collectOrDeselectCard(isHandCard=false) {
 			collection.dataset.startingIndex = startingIndex + 2
 
 			// Disable the eventListener for board and hand cards
-			shouldWaitForDeck = true
-			handIsLocked = true
+			if (!handIsLocked) {
+				handIsLocked = true
+				shouldWaitForDeck = true
+			} else {
+				handIsLocked = false
+				shouldWaitForDeck = false
+			}
 
 			// Reset the selection array
 			selection = [null, null]

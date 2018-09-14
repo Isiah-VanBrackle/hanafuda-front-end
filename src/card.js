@@ -6,13 +6,18 @@ class Card {
         this.suit = obj.suit
         // this.nature = obj.nature
         // this.sub_nature = obj.sub_suit
-    }
-
-    render(pos, i) {
-        const img = document.createElement("img")
+	}
+	
+	cardImgTag() {
+		const img = document.createElement("img")
         img.src = this.src
         img.dataset.id = this.id
-        img.dataset.suit = this.suit
+		img.dataset.suit = this.suit
+		return img
+	}
+
+    render(pos, i) {
+        const img = this.cardImgTag()
         // img.dataset.nature = this.nature
         // img.dataset.sub_nature = this.sub_nature
 
