@@ -16,9 +16,13 @@ const boardCardsListener = e => {
 
 function selectCard(img, isHandCard=false) {
 	selection[isHandCard ? 0 : 1] = img
-	;[...img.parentNode.parentNode.children].forEach(ele => {
-		if (ele.children[0]) ele.children[0].classList.remove("selected")
-	})
+	if (handIsLocked && !shouldWaitForDeck) {
+		console.log('there is a match')
+	} else {
+		;[...img.parentNode.parentNode.children].forEach(ele => {
+			if (ele.children[0]) ele.children[0].classList.remove("selected")
+		})
+	}
 	img.classList.add("selected")
 }
 
