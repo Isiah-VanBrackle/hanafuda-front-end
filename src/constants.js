@@ -14,10 +14,10 @@ const boardCardsListener = e => {
 	collectOrDeselectCard(true)
 }
 
-const deckListener = e => {
+const toggleDeckListener = e => {
 	// Enable the hand and board listeners
-	console.log(selection)
-	shouldWaitForDeck = false
+	// console.log(selection)
+	shouldWaitForDeck = !shouldWaitForDeck
 } 
 
 function selectCard(img, isHandCard=false) {
@@ -54,6 +54,7 @@ function collectOrDeselectCard(isHandCard=false) {
 
 			// Disable the eventListener for board and hand cards
 			shouldWaitForDeck = true
+			handIsLocked = true
 
 			// Reset the selection array
 			selection = [null, null]
