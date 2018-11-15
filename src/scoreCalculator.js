@@ -1,4 +1,4 @@
-const kasuPoints = (cardsArr) = () => {
+const kasuPoints = (cardsArr) => {
 	const plainIds = [
 		1, 2, 5, 6, 9, 10, 13, 14,
 		17, 18, 21, 22, 25, 26, 29, 30,
