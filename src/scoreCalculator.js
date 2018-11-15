@@ -50,6 +50,17 @@ const TanePoints = (cardsArr) => {
 	return animalCount >= 5 ? 1 + animalCount - 5 : 0
 }
 
+const inoShikaChoPoints = (cardsArr) => {
+	const inoShikaChoIds = [24, 28 ,40]
+	let count = 0
+
+	cardsArr.forEach(c => {
+		inoShikaChoIds.includes(c.id) && count++
+	})
+
+	return count === 3 ? 5 : 0
+}
+
 const scoreCalculator = (cardsArr) => {
 
 }
