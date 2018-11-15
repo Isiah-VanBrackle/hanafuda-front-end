@@ -1,4 +1,3 @@
-import scoreCalculator from './scoreCalculator'
 document.addEventListener("DOMContentLoaded", () => {
 	Menu.template()
 	Menu.mainMenu()
@@ -8,11 +7,13 @@ document.addEventListener("DOMContentLoaded", () => {
 		const hand = document.querySelector('#hand')
 		if (hand) {
 			const gameFinsihed = [...hand.children].every(ch => !ch.firstChild)
-			if (gameFinsihed) {
-				const collectedIds = []
-				const scores = scoreCalculator()
+			// if (gameFinsihed) {
+			// 	const collection = documeny.querySelector('')
+			// 	const collectedIds = []
 
-			}
+			// 	const scores = scoreCalculator()
+
+			// }
 		}
 
 		console.log('hand is locked:', handIsLocked)
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			} else {
 				if (e.target.parentNode.id === "deck") {
 					let drawnCardObj = deckArr.pop()
+					console.log("DECK", deckArr)
 					let drawnCard = new Card(drawnCardObj)
 					e.target.src = drawnCardObj.img_src
 

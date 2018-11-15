@@ -149,5 +149,3 @@ const scoreCalculator = (cardsArr) => {
 		"Goko": gokoPoints(cardsArr)
 	}
 }
-
-export default scoreCalculator

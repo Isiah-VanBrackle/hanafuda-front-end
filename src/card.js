@@ -54,13 +54,7 @@ class Card {
                 card.render("table", i)
             })
 
-            deckArr = obj["deck"].map(imgData => {
-                const img = document.createElement("img")
-                img.src = imgData.img_src
-                img.dataset.id = imgData.id
-                img.dataset.suit = imgData.suit
-                return img
-            })
+			deckArr = obj["deck"]
         })
     }
 
