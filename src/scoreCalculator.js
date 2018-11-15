@@ -120,7 +120,16 @@ const shikoPoints = (cardsArr) => {
 	return count === 4 ? 10 : 0
 }
 
+// All 5 brights
+const gokoPoints = (cardsArr) => {
+	const brightIds = [4, 12, 32, 44, 48]
 
+	cardsArr.forEach(c => {
+		brightIds.includes(c.id) && count++
+	})
+
+	return count === 5 ? 15 : 0
+}
 
 const scoreCalculator = (cardsArr) => {
 
