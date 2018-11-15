@@ -85,6 +85,17 @@ const aotanPoints = (cardsArr) => {
 	return count === 3 ? 6 : 0
 }
 
+// 3 brights
+const sankoPoints = (cardsArr) => {
+	const sankoIds = [4, 12, 32, 48]
+
+	cardsArr.forEach(c => {
+		sankoIds.includes(c.id) && count++
+	})
+
+	return count >= 3 ? 6 : 0
+}
+
 const scoreCalculator = (cardsArr) => {
 
 }
