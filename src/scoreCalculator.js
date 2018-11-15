@@ -8,9 +8,9 @@ const kasuPoints = (cardsArr) = () => {
 	let plainCount = 0
 	let hasWildCard = false
 
-	cardsArr.forEach(c => {
-		c.id === 36 && (hasWildCard = true)
-		plainIds.includes(c.id) && plainCount++
+	cardsArr.forEach(id => {
+		id === 36 && (hasWildCard = true)
+		plainIds.includes(id) && plainCount++
 	})
 
 	if (plainCount >= 10) {
@@ -29,8 +29,8 @@ const tanzakuPoints = (cardsArr) => {
 	]
 	let ribbonCount = 0
 
-	cardsArr.forEach(c => {
-		ribbonIds.includes(c.id) && ribbonCount++
+	cardsArr.forEach(id => {
+		ribbonIds.includes(id) && ribbonCount++
 	})
 
 	return ribbonCount >= 5 ? 1 + ribbonCount - 5 : 0
@@ -43,8 +43,8 @@ const tanePoints = (cardsArr) => {
 	]
 	let animalCount = 0
 
-	cardsArr.forEach(c => {
-		animalIds.includes(c.id) && animalCount++
+	cardsArr.forEach(id => {
+		animalIds.includes(id) && animalCount++
 	})
 
 	return animalCount >= 5 ? 1 + animalCount - 5 : 0
@@ -54,8 +54,8 @@ const inoShikaChoPoints = (cardsArr) => {
 	const inoShikaChoIds = [24, 28 ,40]
 	let count = 0
 
-	cardsArr.forEach(c => {
-		inoShikaChoIds.includes(c.id) && count++
+	cardsArr.forEach(id => {
+		inoShikaChoIds.includes(id) && count++
 	})
 
 	return count === 3 ? 5 : 0
@@ -66,8 +66,8 @@ const akatanPoints = (cardsArr) => {
 	const akatanIds = [3, 7, 11]
 	let count = 0
 
-	cardsArr.forEach(c => {
-		akatanIds.includes(c.id) && count++
+	cardsArr.forEach(id => {
+		akatanIds.includes(id) && count++
 	})
 
 	return count === 3 ? 6 : 0
@@ -78,8 +78,8 @@ const aotanPoints = (cardsArr) => {
 	const aotanIds = [23, 35, 39]
 	let count = 0
 
-	cardsArr.forEach(c => {
-		aotanIds.includes(c.id) && count++
+	cardsArr.forEach(id => {
+		aotanIds.includes(id) && count++
 	})
 
 	return count === 3 ? 6 : 0
@@ -90,8 +90,8 @@ const sankoPoints = (cardsArr) => {
 	const sankoIds = [4, 12, 32, 48]
 	let count = 0
 
-	cardsArr.forEach(c => {
-		sankoIds.includes(c.id) && count++
+	cardsArr.forEach(id => {
+		sankoIds.includes(id) && count++
 	})
 
 	return count === 3 ? 6 : 0
@@ -103,9 +103,9 @@ const ameShikoPoints = (cardsArr) => {
 	let hasRainman = false
 	let count = 0
 
-	cardsArr.forEach(c => {
-		brightIds.includes(c.id) && count++
-		c.id === 44 && (hasRainman = true)
+	cardsArr.forEach(id => {
+		brightIds.includes(id) && count++
+		id === 44 && (hasRainman = true)
 	})
 
 	return count === 4 && hasRainman ? 8 : 0
@@ -116,8 +116,8 @@ const shikoPoints = (cardsArr) => {
 	const shikoIds = [4, 12, 32, 48]
 	let count = 0
 
-	cardsArr.forEach(c => {
-		shikoIds.includes(c.id) && count++
+	cardsArr.forEach(id => {
+		shikoIds.includes(id) && count++
 	})
 
 	return count === 4 ? 10 : 0
@@ -128,8 +128,8 @@ const gokoPoints = (cardsArr) => {
 	const brightIds = [4, 12, 32, 44, 48]
 	let count = 0
 
-	cardsArr.forEach(c => {
-		brightIds.includes(c.id) && count++
+	cardsArr.forEach(id => {
+		brightIds.includes(id) && count++
 	})
 
 	return count === 5 ? 15 : 0
