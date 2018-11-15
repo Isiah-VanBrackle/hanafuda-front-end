@@ -109,6 +109,17 @@ const ameShikoPoints = (cardsArr) => {
 	return count === 4 && hasRainman ? 8 : 0
 }
 
+// 4 brights not containing Rainman
+const shikoPoints = (cardsArr) => {
+	const shikoIds = [4, 12, 32, 48]
+
+	cardsArr.forEach(c => {
+		shikoIds.includes(c.id) && count++
+	})
+
+	return count === 4 ? 10 : 0
+}
+
 
 
 const scoreCalculator = (cardsArr) => {
