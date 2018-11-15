@@ -27,13 +27,15 @@ button {
   float: left;
   height: 67%;
   width: 67%;
-  background-color: yellow;
+  background-color: #6b2500;
+  background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
 }
 
 #hand {
   height: 33%;
   width: 67%;
-  background-color: blue;
+  background-color: #6b2500;
+background-image: url("https://www.transparenttextures.com/patterns/farmer.png");
   float: left;
 }
 
@@ -41,12 +43,13 @@ button {
   float: right;
   height: 100%;
   width: 33%;
-  background-color: burlywood;
+  background-color: #6b2500;
+  background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
 }
 
 .collection-card {
   float: left;
-  background-color: black;
+  /* background-color: black; */
   width: 19%;
   height: 12%;
   margin: 0.3% 3% 0.3% 3%;
@@ -57,12 +60,13 @@ button {
   width: 50%;
   margin: auto;
   margin-top: 8%;
-  background-color: aqua;
+  background-color: #6b2500;
+background-image: url("https://www.transparenttextures.com/patterns/embossed-paper.png");
 }
 
 .board-card {
   float: left;
-  background-color: black;
+  /* background-color: black; */
   height: 30%;
   width: 22%;
   margin: 1%;
@@ -104,9 +108,13 @@ img {
 }
 
 .selected {
+<<<<<<< HEAD
   border: 3px solid red;
 }
 
 #deck div {
   position: absolute;
+=======
+  border: 3px solid green;
+>>>>>>> few-steps-back
 }
