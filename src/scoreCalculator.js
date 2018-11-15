@@ -93,7 +93,7 @@ const sankoPoints = (cardsArr) => {
 		sankoIds.includes(c.id) && count++
 	})
 
-	return count >= 3 ? 6 : 0
+	return count === 3 ? 6 : 0
 }
 
 // 4 brights containing Rainman
@@ -106,8 +106,10 @@ const ameShikoPoints = (cardsArr) => {
 		c.id === 44 && (hasRainman = true)
 	})
 
-	return count >= 4 && hasRainman ? 8 : 0
+	return count === 4 && hasRainman ? 8 : 0
 }
+
+
 
 const scoreCalculator = (cardsArr) => {
 
