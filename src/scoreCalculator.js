@@ -61,6 +61,18 @@ const inoShikaChoPoints = (cardsArr) => {
 	return count === 3 ? 5 : 0
 }
 
+// Red poetry ribbons
+const akatanPoints = (cardsArr) => {
+	const akatanIds = [3, 7, 11]
+	let count = 0
+
+	cardsArr.forEach(c => {
+		akatanIds.includes(c.id) && count++
+	})
+
+	return count === 3 ? 6 : 0
+}
+
 const scoreCalculator = (cardsArr) => {
 
 }
