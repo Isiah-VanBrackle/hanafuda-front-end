@@ -73,6 +73,18 @@ const akatanPoints = (cardsArr) => {
 	return count === 3 ? 6 : 0
 }
 
+// Blue ribbons
+const aotanPoints = (cardsArr) => {
+	const aotanIds = [23, 35, 39]
+	let count = 0
+
+	cardsArr.forEach(c => {
+		aotanIds.includes(c.id) && count++
+	})
+
+	return count === 3 ? 6 : 0
+}
+
 const scoreCalculator = (cardsArr) => {
 
 }
