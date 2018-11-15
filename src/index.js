@@ -1,9 +1,20 @@
-
+import scoreCalculator from './scoreCalculator'
 document.addEventListener("DOMContentLoaded", () => {
 	Menu.template()
 	Menu.mainMenu()
 
 	document.addEventListener("click", e => {
+		// Logic for end of the game
+		const hand = document.querySelector('#hand')
+		if (hand) {
+			const gameFinsihed = [...hand.children].every(ch => !ch.firstChild)
+			if (gameFinsihed) {
+				const collectedIds = []
+				const scores = scoreCalculator()
+
+			}
+		}
+
 		console.log('hand is locked:', handIsLocked)
 		console.log('should wait for deck?:', shouldWaitForDeck)
 		console.log('current selection:', selection)
