@@ -108,13 +108,10 @@ img {
 }
 
 .selected {
-<<<<<<< HEAD
   border: 3px solid red;
 }
 
 #deck div {
   position: absolute;
-=======
   border: 3px solid green;
->>>>>>> few-steps-back
 }
