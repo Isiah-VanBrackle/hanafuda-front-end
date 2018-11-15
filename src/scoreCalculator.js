@@ -88,6 +88,7 @@ const aotanPoints = (cardsArr) => {
 // 3 brights not containing Rainman
 const sankoPoints = (cardsArr) => {
 	const sankoIds = [4, 12, 32, 48]
+	let count = 0
 
 	cardsArr.forEach(c => {
 		sankoIds.includes(c.id) && count++
@@ -100,6 +101,7 @@ const sankoPoints = (cardsArr) => {
 const ameShikoPoints = (cardsArr) => {
 	const brightIds = [4, 12, 32, 44, 48]
 	let hasRainman = false
+	let count = 0
 
 	cardsArr.forEach(c => {
 		brightIds.includes(c.id) && count++
@@ -112,6 +114,7 @@ const ameShikoPoints = (cardsArr) => {
 // 4 brights not containing Rainman
 const shikoPoints = (cardsArr) => {
 	const shikoIds = [4, 12, 32, 48]
+	let count = 0
 
 	cardsArr.forEach(c => {
 		shikoIds.includes(c.id) && count++
@@ -123,6 +126,7 @@ const shikoPoints = (cardsArr) => {
 // All 5 brights
 const gokoPoints = (cardsArr) => {
 	const brightIds = [4, 12, 32, 44, 48]
+	let count = 0
 
 	cardsArr.forEach(c => {
 		brightIds.includes(c.id) && count++
