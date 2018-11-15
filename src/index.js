@@ -7,18 +7,24 @@ document.addEventListener("DOMContentLoaded", () => {
 		const hand = document.querySelector('#hand')
 		if (hand) {
 			const gameFinsihed = [...hand.children].every(ch => !ch.firstChild)
-			// if (gameFinsihed) {
-			// 	const collection = documeny.querySelector('')
-			// 	const collectedIds = []
-
-			// 	const scores = scoreCalculator()
-
-			// }
+			if (gameFinsihed) {
+				const collection = document.querySelector('#collection')
+				let collectedIds = [...collection.children].map(collectionCard => {
+					return collectionCard.firstChild ? Number(collectionCard.firstChild.dataset.id) : null
+				})
+				collectedIds = collectedIds.filter(el => el)
+				console.log("collectionIds", collectedIds)
+				if (collectedIds.length > 0) {
+					const scores = scoreCalculator(collectedIds)
+					alert(`Your Score: ${scores}`)
+				}
+			}
 		}
+		// End of logic for end of the game
 
-		console.log('hand is locked:', handIsLocked)
-		console.log('should wait for deck?:', shouldWaitForDeck)
-		console.log('current selection:', selection)
+		// console.log('hand is locked:', handIsLocked)
+		// console.log('should wait for deck?:', shouldWaitForDeck)
+		// console.log('current selection:', selection)
 
 		if (e.target.nodeName === "IMG") {
 			if (!shouldWaitForDeck) {
@@ -31,12 +37,12 @@ document.addEventListener("DOMContentLoaded", () => {
 			} else {
 				if (e.target.parentNode.id === "deck") {
 					let drawnCardObj = deckArr.pop()
-					console.log("DECK", deckArr)
+					// console.log("DECK", deckArr)
 					let drawnCard = new Card(drawnCardObj)
 					e.target.src = drawnCardObj.img_src
 
 					selection[0] = drawnCard.cardImgTag()
-					console.log('selection after draw:', selection)
+					// console.log('selection after draw:', selection)
 					shouldWaitForDeck = false
 				}
 			}
