@@ -22,7 +22,7 @@ const kasuPoints = (cardsArr) = () => {
 	return points
 }
 
-const TanzakuPoints = (cardsArr) => {
+const tanzakuPoints = (cardsArr) => {
 	const ribbonIds = [
 		3, 7, 11, 15, 19,
 		23, 27, 35, 39, 42
@@ -36,7 +36,7 @@ const TanzakuPoints = (cardsArr) => {
 	return ribbonCount >= 5 ? 1 + ribbonCount - 5 : 0
 }
 
-const TanePoints = (cardsArr) => {
+const tanePoints = (cardsArr) => {
 	const animalIds = [
 		8, 16, 20, 24, 28,
 		31, 36, 40, 43
@@ -136,5 +136,18 @@ const gokoPoints = (cardsArr) => {
 }
 
 const scoreCalculator = (cardsArr) => {
-
+	return {
+		"Kasu": kasuPoints(cardsArr),
+		"Tanzaku": tanzakuPoints(cardsArr),
+		"Tane": tanePoints(cardsArr),
+		"Ino-Shika-Cho": inoShikaChoPoints(cardsArr),
+		"Akatan": akatanPoints(cardsArr),
+		"Aotan": aotanPoints(cardsArr),
+		"Sanko": sankoPoints(cardsArr),
+		"Ame-Shiko": ameShikoPoints(cardsArr),
+		"Shiko": shikoPoints(cardsArr),
+		"Goko": gokoPoints(cardsArr)
+	}
 }
+
+export default scoreCalculator
