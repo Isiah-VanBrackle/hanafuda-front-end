@@ -85,7 +85,7 @@ const aotanPoints = (cardsArr) => {
 	return count === 3 ? 6 : 0
 }
 
-// 3 brights
+// 3 brights not containing Rainman
 const sankoPoints = (cardsArr) => {
 	const sankoIds = [4, 12, 32, 48]
 
@@ -94,6 +94,19 @@ const sankoPoints = (cardsArr) => {
 	})
 
 	return count >= 3 ? 6 : 0
+}
+
+// 4 brights containing Rainman
+const ameShikoPoints = (cardsArr) => {
+	const brightIds = [4, 12, 32, 44, 48]
+	let hasRainman = false
+
+	cardsArr.forEach(c => {
+		brightIds.includes(c.id) && count++
+		c.id === 44 && (hasRainman = true)
+	})
+
+	return count >= 4 && hasRainman ? 8 : 0
 }
 
 const scoreCalculator = (cardsArr) => {
