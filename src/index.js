@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				console.log("collectionIds", collectedIds)
 				if (collectedIds.length > 0) {
 					const scores = scoreCalculator(collectedIds)
-					alert(`Your Score: ${scores}`)
+					alertScore(scores)
 				}
 			}
 		}
